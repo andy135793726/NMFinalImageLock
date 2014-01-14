@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">NMFinalImageUnlock</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    
+    <string name="menu_set_image">拍張新照片</string>
+    <string name="menu_settings">設定</string>
+    
+    <string name="unlock">解鎖</string>
+
+    <!-- settings activity -->
+    <string name="setting_unlockScreenOn">使用圖片螢幕鎖</string>
+</resources>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.nmfinal.nmfinalimageunlock"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="18" />
+    
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.GET_TASKS" /> <!-- For checking if a service is running -->
+    
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/icon_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.nmfinal.nmfinalimageunlock.MainActivity"
+            android:label="@string/app_name" 
+            android:theme="@android:style/Theme.Holo.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    	
+        <activity
+            android:name="com.nmfinal.nmfinalimageunlock.SetImageActivity"
+            android:theme="@android:style/Theme.Holo.NoActionBar" >
+            <intent-filter>
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name="com.nmfinal.nmfinalimageunlock.SettingsActivity"
+            android:theme="@android:style/Theme.Holo.NoActionBar" >
+            <intent-filter>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.nmfinal.nmfinalimageunlock.UnlockScreenActivity"
+          	android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+          	android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT" /> 
+            </intent-filter>
+        </activity>
+        <service
+            android:name="com.nmfinal.nmfinalimageunlock.UnlockScreenService" >
+        </service>
+    	
+    	<receiver 
+    	    android:enabled="true"
+    	    android:name   ="com.nmfinal.receiver.UnlockScreenStarter" >
+    	    <intent-filter>
+    	        <action android:name="android.intent.action.BOOT_COMPLETED" />
+    	    </intent-filter>
+    	</receiver>
+    </application>
+    
+    
+
+</manifest>
