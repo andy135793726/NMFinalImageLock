@@ -22,6 +22,7 @@
     
     <string name="acctType_ntumail">NtuMail2.0</string>
     <string name="acctType_dropbox">Dropbox</string>
+    <string name="acctType_google">Google</string>
     
     <string name="accountInfo">acctInfo</string>
     <string name="accountType">accountType</string>

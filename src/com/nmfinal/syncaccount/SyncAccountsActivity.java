@@ -110,6 +110,12 @@ public class SyncAccountsActivity extends Activity {
 		dropboxAcct.put( HASHKEY_ACCT_PASSWORD, null);
 		accountsData.add( dropboxAcct );
 		
+		HashMap<String,Object> googleAcct = new HashMap<String, Object>();
+		googleAcct.put( HASHKEY_ACCT_TYPE, getResources().getString(R.string.acctType_google) );
+		googleAcct.put( HASHKEY_ACCT_IMG, R.drawable.logo_google );
+		googleAcct.put( HASHKEY_ACCT_USERNAME, null);
+		googleAcct.put( HASHKEY_ACCT_PASSWORD, null);
+		accountsData.add( googleAcct );
 	}
 	
 	class AccountsListAdapter extends BaseAdapter

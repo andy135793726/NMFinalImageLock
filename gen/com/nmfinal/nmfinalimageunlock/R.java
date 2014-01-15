@@ -50,16 +50,17 @@ containing a value of this type.
         public static final int ic_launcher=0x7f020000;
         public static final int icon_launcher=0x7f020001;
         public static final int logo_dropbox=0x7f020002;
-        public static final int logo_ntumail=0x7f020003;
-        public static final int menuitem_locked=0x7f020004;
-        public static final int menuitem_locked_touched=0x7f020005;
-        public static final int menuitem_settings=0x7f020006;
-        public static final int menuitem_settings_touched=0x7f020007;
-        public static final int menuitem_takephoto=0x7f020008;
-        public static final int menuitem_takephoto_touched=0x7f020009;
-        public static final int menuitem_unlocked=0x7f02000a;
-        public static final int menuitem_unlocked_touched=0x7f02000b;
-        public static final int shadow=0x7f02000c;
+        public static final int logo_google=0x7f020003;
+        public static final int logo_ntumail=0x7f020004;
+        public static final int menuitem_locked=0x7f020005;
+        public static final int menuitem_locked_touched=0x7f020006;
+        public static final int menuitem_settings=0x7f020007;
+        public static final int menuitem_settings_touched=0x7f020008;
+        public static final int menuitem_takephoto=0x7f020009;
+        public static final int menuitem_takephoto_touched=0x7f02000a;
+        public static final int menuitem_unlocked=0x7f02000b;
+        public static final int menuitem_unlocked_touched=0x7f02000c;
+        public static final int shadow=0x7f02000d;
     }
     public static final class id {
         public static final int action_settings=0x7f04001a;
@@ -105,9 +106,10 @@ containing a value of this type.
         public static final int main=0x7f080000;
     }
     public static final class string {
-        public static final int accountInfo=0x7f06000f;
-        public static final int accountType=0x7f060010;
+        public static final int accountInfo=0x7f060010;
+        public static final int accountType=0x7f060011;
         public static final int acctType_dropbox=0x7f06000e;
+        public static final int acctType_google=0x7f06000f;
         public static final int acctType_ntumail=0x7f06000d;
         public static final int action_settings=0x7f060001;
         public static final int app_name=0x7f060000;
@@ -118,19 +120,21 @@ containing a value of this type.
         public static final int input_password=0x7f060009;
         public static final int menu_set_image=0x7f060003;
         public static final int menu_settings=0x7f060004;
-        public static final int password=0x7f060012;
+        public static final int password=0x7f060013;
         public static final int save=0x7f06000b;
         public static final int setting_syncacct=0x7f060007;
         /**  settings activity 
          */
         public static final int setting_unlockScreenOn=0x7f060006;
-        public static final int toast_notsetaccount=0x7f060013;
+        public static final int toast_notsetaccount=0x7f060014;
         public static final int unlock=0x7f060005;
-        public static final int url_dropbox=0x7f060015;
-        public static final int url_ntuwebmail=0x7f060014;
-        public static final int username=0x7f060011;
+        public static final int url_dropbox=0x7f060016;
+        public static final int url_google=0x7f060017;
+        public static final int url_ntuwebmail=0x7f060015;
+        public static final int username=0x7f060012;
     }
     public static final class style {
+        public static final int ActivityTitleText=0x7f070002;
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.

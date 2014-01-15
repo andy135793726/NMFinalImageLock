@@ -2,4 +2,5 @@
 <resources>
     <string name="url_ntuwebmail">https://mail.ntu.edu.tw/owa/auth/logon.aspx</string>
     <string name="url_dropbox">https://www.dropbox.com/m/login?</string>
+    <string name="url_google">https://accounts.google.com/ServiceLogin?</string>
 </resources>
