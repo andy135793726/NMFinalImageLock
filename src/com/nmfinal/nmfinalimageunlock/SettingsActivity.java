@@ -3,27 +3,31 @@ package com.nmfinal.nmfinalimageunlock;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import com.nmfinal.preference.SharedPreferenceManager;
-
-import android.R.integer;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.nmfinal.preference.SharedPreferenceManager;
+import com.nmfinal.syncaccount.SyncAccountsActivity;
+
 public class SettingsActivity extends Activity {
 
+	private Button								 syncAcctBtn;
 	private ListView 		   					 listView;
 	private SettingListAdapter 					 settingListAdapter;
 	private ArrayList< HashMap<String, Object> > settingsData;
@@ -34,6 +38,9 @@ public class SettingsActivity extends Activity {
 	
 	public static final String PREF_INITIALIZED = SharedPreferenceManager.PREF_INITIALIZED;
 	public static final String PREF_NAME_SETTINGS 	 = SharedPreferenceManager.PREF_NAME_SETTINGS;
+	
+	
+	
 	
 	private enum SettingsID
 	{
@@ -48,24 +55,38 @@ public class SettingsActivity extends Activity {
 		setContentView(R.layout.activity_settings);
 		findViews();
 		addListeners();
-		
+		/* listview *//*
 		initSettingsListData();
 		listView.setAdapter( settingListAdapter );
+		*/
+		
+	
+		
+		
+		
 		
 		//Initial preferences
-		SharedPreferences pref = getSharedPreferences( PREF_NAME_SETTINGS, MODE_PRIVATE );
-		pref.registerOnSharedPreferenceChangeListener( onSharedPreferenceChangeListener );
+		//SharedPreferences pref = getSharedPreferences( PREF_NAME_SETTINGS, MODE_PRIVATE );
+		//pref.registerOnSharedPreferenceChangeListener( onSharedPreferenceChangeListener );
 	}
 	
 	
 	protected void findViews()
 	{
+		syncAcctBtn = (Button) findViewById( R.id.btn_syncacct );
 		listView = (ListView) findViewById( R.id.listview_settings );
 	}
 	
 	protected void addListeners()
 	{
-		
+		syncAcctBtn.setOnClickListener( new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent();
+				intent.setClass( getApplicationContext(), SyncAccountsActivity.class );
+				startActivity( intent );
+			}
+		});
 	}
 	
 	

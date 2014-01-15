@@ -3,15 +3,20 @@ package com.nmfinal.nmfinalimageunlock;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.nmfinal.nmfinalimageunlock.R.drawable;
 import com.nmfinal.preference.SharedPreferenceManager;
+import com.nmfinal.syncaccount.LinkAccountDialog;
 
 public class MainActivity extends Activity {
 
@@ -31,6 +36,14 @@ public class MainActivity extends Activity {
 	public static final String PREF_INITIALIZED 	 = SharedPreferenceManager.PREF_INITIALIZED;
 	public static final String UNLOCKSCREEN_SWITCH	 = "unlockScreenSwitch";
 	
+	protected enum MenuItemID
+	{
+		NONE,
+		ITEM_UNLOCKED,
+		ITEM_LOCKED,
+		ITEM_TAKEPHOTO,
+		ITEM_SETTINGS
+	}
 	
 	
 	@Override
@@ -108,6 +121,47 @@ public class MainActivity extends Activity {
 		takePhotoImgBtn.   setOnClickListener( takePhotoImgBtnListener );
 		settingsImgBtn.	   setOnClickListener( settingsImgBtnListener );
 		
+		switchUnlockImgBtn.setOnTouchListener( new OnTouchListener() {
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				MenuItemID id = ( unlockOn ? MenuItemID.ITEM_LOCKED : MenuItemID.ITEM_UNLOCKED );
+				if (event.getAction() == MotionEvent.ACTION_DOWN){
+					((ImageButton)v).setImageResource( getMenuItemDrawableId( id, 1) );
+				}
+				else if (event.getAction() == MotionEvent.ACTION_UP ){
+					((ImageButton)v).setImageResource( getMenuItemDrawableId( id, 0) );
+				}
+				return false;
+			}
+		});
+		
+		takePhotoImgBtn.setOnTouchListener( new OnTouchListener() {
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				MenuItemID id = MenuItemID.ITEM_TAKEPHOTO;
+				if (event.getAction() == MotionEvent.ACTION_DOWN){
+					((ImageButton)v).setImageResource( getMenuItemDrawableId( id, 1) );
+				}
+				else if (event.getAction() == MotionEvent.ACTION_UP ){
+					((ImageButton)v).setImageResource( getMenuItemDrawableId( id, 0) );
+				}
+				return false;
+			}
+		} );
+		
+		settingsImgBtn.setOnTouchListener( new OnTouchListener() {
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				MenuItemID id = MenuItemID.ITEM_SETTINGS;
+				if (event.getAction() == MotionEvent.ACTION_DOWN){
+					((ImageButton)v).setImageResource( getMenuItemDrawableId( id, 1) );
+				}
+				else if (event.getAction() == MotionEvent.ACTION_UP ){
+					((ImageButton)v).setImageResource( getMenuItemDrawableId( id, 0) );
+				}
+				return false;
+			}
+		} );
 	}
 	
 	protected void initSharedPref( SharedPreferences prefInit ) 
@@ -132,6 +186,44 @@ public class MainActivity extends Activity {
 		editor.putBoolean( UNLOCKSCREEN_SWITCH, enable );
 		editor.commit();
 	}
+	
+	protected int getMenuItemDrawableId( MenuItemID itemId, int state )
+	{
+		int id = -1;
+		if (state == 0){           // not touched
+			switch (itemId){
+			case ITEM_LOCKED:
+				id = R.drawable.menuitem_locked;
+				break;
+			case ITEM_UNLOCKED:
+				id = R.drawable.menuitem_unlocked;
+				break;
+			case ITEM_TAKEPHOTO:
+				id = R.drawable.menuitem_takephoto;
+				break;
+			case ITEM_SETTINGS:
+				id = R.drawable.menuitem_settings;
+				break;
+			}
+		}
+		else if (state == 1) {
+			switch (itemId){
+			case ITEM_LOCKED:
+				id = R.drawable.menuitem_locked_touched;
+				break;
+			case ITEM_UNLOCKED:
+				id = R.drawable.menuitem_unlocked_touched;
+				break;
+			case ITEM_TAKEPHOTO:
+				id = R.drawable.menuitem_takephoto_touched;
+				break;
+			case ITEM_SETTINGS:
+				id = R.drawable.menuitem_settings_touched;
+			}
+		}
+		return id;
+	}
+	
 	
 	private OnClickListener switchUnlockImgBtnListener = new OnClickListener() {
 		
@@ -168,5 +260,7 @@ public class MainActivity extends Activity {
 			startActivity( intent );
 		}
 	};
+	
+	
 	
 }

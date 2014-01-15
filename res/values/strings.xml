@@ -12,4 +12,22 @@
 
     <!-- settings activity -->
     <string name="setting_unlockScreenOn">使用圖片螢幕鎖</string>
+    <string name="setting_syncacct">連結帳戶</string>
+    
+    <string name="input_account">輸入帳號</string>
+    <string name="input_password">輸入密碼</string>
+    <string name="confirm_password">確認密碼</string>
+    <string name="save">儲存</string>
+    <string name="cancel">取消</string>
+    
+    <string name="acctType_ntumail">NtuMail2.0</string>
+    <string name="acctType_dropbox">Dropbox</string>
+    
+    <string name="accountInfo">acctInfo</string>
+    <string name="accountType">accountType</string>
+    <string name="username">username</string>
+    <string name="password">password</string>
+    
+    
+    <string name="toast_notsetaccount">未連結此服務</string>
 </resources>

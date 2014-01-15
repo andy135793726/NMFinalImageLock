@@ -4,6 +4,12 @@
     android:layout_height="match_parent" >
     
 
+    <Button 
+        android:id="@+id/btn_syncacct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/setting_syncacct"
+        />
     <ListView 
         android:id="@+id/listview_settings"
         android:layout_width="match_parent"
